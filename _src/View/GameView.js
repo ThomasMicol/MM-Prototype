@@ -11,6 +11,7 @@ class GameView{
             }
         }
         this.game = new Phaser.Game(this.config);
+        
     }
 
 
@@ -19,10 +20,11 @@ class GameView{
     }
 
     create(){
+        let states = StateFactory.getStates();
+        this.game.state.add("splashState", states.splashState,true);
     }
 
     render(){
-        console.log(window.outerWidth)
         this.game.width = window.outerWidth;
         this.game.height = window.outerHeight * 0.90;
 

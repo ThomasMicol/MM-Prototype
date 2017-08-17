@@ -1,12 +1,10 @@
 class GameController{
 
-    constructor(){
-        this.gameModel = new GameModel();
-        
+    constructor(aModel){
+        let myModel = aModel;
+        let myView = new GameView(myModel)
     }
-
-
 
 }
 
-let gameCtrl = new GameController();
+let gameController = new GameController(new GameModel());

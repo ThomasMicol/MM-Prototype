@@ -1,40 +1,40 @@
-let config = {
-    width: window.outerWidth,
-    height: window.outerHeight * 0.90,
-    parent: 'game',
-    renderer: Phaser.AUTO,
-    state: {
-        preload: preload,
-        create: create,
-        render: render
+class GameView{
+    constructor(aModel){
+        this.config = {
+            width: window.outerWidth,
+            height: window.outerHeight * 0.90,
+            parent: 'game',
+            renderer: Phaser.AUTO,
+            state: {
+                preload: this.preload,
+                create: this.create,
+                render: this.render
+            }
+        }
+        this.myModel = aModel;       
+        this.states;
+        this.game = new Phaser.Game(this.config);
+        this.setLaunchingStates(this.game, this.myModel);
     }
-}
-let states = StateFactory.getStates();
-let game = new Phaser.Game(config);
-let timer;
-
-function preload(){
-
-}
-
-function create(){
+        
+    create(){
+        console.log("in the view create function");
+    }
     
-    game.state.add("splashState", states.splashState,true);
-    game.state.add('mainMenuState', states.mainMenuState);
-    timer = game.time.create(false);
-    timer.add(3000,goToMainMenu,this);
-    timer.start();
-}
+    render(){
+        game.width = window.outerWidth;
+        game.height = window.outerHeight * 0.90;
+    }
 
-function render(){
-    game.width = window.outerWidth;
-    game.height = window.outerHeight * 0.90;
-    game.debug.text("Time until event: " + timer.duration.toFixed(0), 10, 20,'red');
+    setLaunchingStates(game, aModel){
+        this.states = StateFactory.getLaunchingStates(aModel);
+        game.state.add('bootState', this.states.bootState, true)
+        game.state.add("splashState", this.states.splashState);
+        game.state.add('mainMenuState', this.states.mainMenuState); 
+        game.state.add('characterCreationState', this.states.characterCreationState);
+        game.state.add('mainGameState', this.states.mainGameState);
+    }
+
     
-
-}
-
-function goToMainMenu(){
-    console.log('in the go to');
 }
 

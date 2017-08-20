@@ -1,7 +1,7 @@
 class GameModel{
 
     constructor(){
-        this.myCurrency = 0;
+        this.myGame = new RunningGame();
     }
 
     newGame(){

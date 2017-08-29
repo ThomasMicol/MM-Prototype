@@ -108,7 +108,7 @@ class StateFactory{
             preload:function(){
                 this.load.image('gameBackground', '_sprites/Game Screen/gameBackground.png')
                 this.load.image('sidebarBackground', '_sprites/Game Screen/sidebarBackground.png')
-                this.load.image('lumberMill1', '_sprites/Game Screen/lumberMill1.jpg');
+                this.load.image('lumberMill1', '_sprites/Game Screen/lumberMill1.png');
                 this.load.image('grainery1', '_sprites/Game Screen/grainery1.jpg');
                 this.load.image('quarry1', '_sprites/Game Screen/quarry1.jpg');
                 this.load.image('tradingPost1', '_sprites/Game Screen/tradingPost1.jpg');
@@ -116,18 +116,35 @@ class StateFactory{
                 this.load.image('foodParticle', '_sprites/Game Screen/Particles/food.png')
                 this.load.image('stoneParticle', '_sprites/Game Screen/Particles/stone.png')
                 this.load.image('goldParticle', '_sprites/Game Screen/Particles/gold.png');
-
+                this.load.image('cornField', '_media/ANimate/CornSway.gif');
 
             },
 
             create: function(){
-                this.btn_godlupgrader = this.game.add.button(this.game.world.centerX - 95, 100, 'lumberMill1', this.goldClickUpgrade, this, 2, 1 ,0)
+                this.background = this.game.add.image(0,0, 'gameBackground');
+                this.btn_godlupgrader = this.game.add.button(this.game.world.centerX - 95, 200, 'lumberMill1', this.goldClickUpgrade, this, 2, 1 ,0)
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 85, 390, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 85, 425, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 85, 460, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 85, 495, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 40, 390, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 40, 425, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 40, 460, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX - 40, 495, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 5, 390, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 5, 425, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 5, 460, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 5, 495, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 50, 390, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 50, 425, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 50, 460, 'cornField');
+                this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 50, 495, 'cornField');
 
             },
 
             render: function(){
                 if(this.lumber.isBuilt){
-                    this.btn_WoodClicker = this.game.add.button(this.game.world.centerX - 95, 10, 'lumberMill1', this.lumberClick, this, 2, 1 ,0)
+                    this.btn_WoodClicker = this.game.add.button(this.game.world.centerX - 720, 10, 'lumberMill1', this.lumberClick, this, 2, 1 ,0)
                 }
                 if(this.grain.isBuilt){
                     this.btn_FoodClicker = this.game.add.button(this.game.world.centerX - 95, 150, 'grainery1', this.foodClick, this, 2, 1 ,0)
@@ -136,7 +153,7 @@ class StateFactory{
                     this.btn_StoneClicker = this.game.add.button(this.game.world.centerX - 95, 300, 'quarry1', this.stoneClick, this, 2, 1 ,0)
                 }
                 if(this.tradePost.isBuilt){
-                    this.btn_GoldClicker = this.game.add.button(this.game.world.centerX - 915, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
+                    this.btn_GoldClicker = this.game.add.button(this.game.world.centerX - 615, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
                 }
                 this.game.debug.text(this.lumber.getWoodCount(), 10, 20,'red');
                 this.game.debug.text(this.grain.getFoodCount(), 10, 40,'red');

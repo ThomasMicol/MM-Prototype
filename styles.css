@@ -1,5 +1,10 @@
 body{
     margin: 0;
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.50);
 }
 
+#game{
+    width: 1440px;
+    height: 880px;
+    margin: 0 auto;
+}

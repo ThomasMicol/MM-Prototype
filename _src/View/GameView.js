@@ -1,8 +1,8 @@
 class GameView{
     constructor(aModel){
         this.config = {
-            width: window.outerWidth,
-            height: window.outerHeight * 0.914,
+            width: 1440,
+            height: 880,
             parent: 'game',
             renderer: Phaser.AUTO,
             state: {

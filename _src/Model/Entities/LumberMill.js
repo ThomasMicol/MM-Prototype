@@ -1,5 +1,6 @@
-class LumberMill{
+class LumberMill extends Building{
     constructor(){
+		super();
         this.isUnlocked = true;
         this.isBuilt = true;
         this.clickPower = 1;

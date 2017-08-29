@@ -102,6 +102,7 @@ class StateFactory{
             this.grain = this.kingdom.grainery;
             this.quarry = this.kingdom.quarry;
             this.tradePost = this.kingdom.tradingPost;
+			this.guiGroup = game.add.group();
         }
             
         stateHolder.mainGameState.prototype = {
@@ -141,8 +142,13 @@ class StateFactory{
                 this.btn_godlupgrader = this.game.add.sprite(this.game.world.centerX + 50, 495, 'cornField');
 
             },
+			
+			update: function(){
+				this.drawGui();
+			},
 
             render: function(){
+<<<<<<< HEAD
                 if(this.lumber.isBuilt){
                     this.btn_WoodClicker = this.game.add.button(this.game.world.centerX - 720, 10, 'lumberMill1', this.lumberClick, this, 2, 1 ,0)
                 }
@@ -155,12 +161,40 @@ class StateFactory{
                 if(this.tradePost.isBuilt){
                     this.btn_GoldClicker = this.game.add.button(this.game.world.centerX - 615, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
                 }
+=======
+                
+>>>>>>> 93b977494370daa95474ae72f78d600baa9b5e46
                 this.game.debug.text(this.lumber.getWoodCount(), 10, 20,'red');
                 this.game.debug.text(this.grain.getFoodCount(), 10, 40,'red');
                 this.game.debug.text(this.quarry.getStoneCount(), 10, 60,'red');
                 this.game.debug.text(this.tradePost.getGoldCount(), 10, 80,'red');
 
             },
+			
+			drawGui(){
+				this.guiGroup.remove();
+				if(this.lumber.isBuilt){
+                    let btn_WoodClicker = this.game.add.button(this.game.world.centerX - 95, 10, 'lumberMill1', this.lumberClick, this, 2, 1 ,0)
+					this.guiGroup.add(btn_WoodClicker);
+					
+                }
+                if(this.grain.isBuilt){
+                    let btn_FoodClicker = this.game.add.button(this.game.world.centerX - 95, 150, 'grainery1', this.foodClick, this, 2, 1 ,0)
+					this.guiGroup.add(btn_FoodClicker);
+                }
+                if(this.quarry.isBuilt){
+                    let btn_StoneClicker = this.game.add.button(this.game.world.centerX - 95, 300, 'quarry1', this.stoneClick, this, 2, 1 ,0)
+					this.guiGroup.add(btn_StoneClicker);
+                } 
+				if(this.tradePost.isBuilt){
+					let btn_goldUpgrader = this.game.add.button(this.game.world.centerX - 95, 100, 'lumberMill1', this.goldClickUpgrade, this, 2, 1 ,0)
+					this.guiGroup.add(btn_goldUpgrader);
+					let btn_GoldClicker = this.game.add.button(this.game.world.centerX - 15, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
+					this.guiGroup.add(btn_GoldClicker);
+				}
+				
+                
+			},
 
             lumberClick: function(){
                 this.kingdom.lumberClick();
@@ -179,12 +213,16 @@ class StateFactory{
                 let coin = this.game.add.sprite(pointer.x +(Math.random() * 180),pointer.y+(Math.random() * 20), 'goldParticle')
                 let coinCollect = this.game.add.tween(coin);
                 coinCollect.to({y: pointer.y-((Math.random() * 200) + 100), alpha:0}, (Math.random() * 100) + 500, Phaser.Easing.Linear.None);
-                coinCollect.start();
+                coinCollect.onComplete.add(function(){coin.destroy();});
+				coinCollect.start();
+				
+				
+				
             },
 
             goldClickUpgrade: function(){
-                console.log("ayo")
                 this.kingdom.buildTradingPost();
+				
             }
 
         }

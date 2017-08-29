@@ -1,5 +1,6 @@
-class TradingPost{
+class TradingPost extends Building{
     constructor(){
+		super()
         this.isUnlocked = true;
         this.isBuilt = false;
         this.myLevel = 1;

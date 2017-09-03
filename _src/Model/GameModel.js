@@ -8,15 +8,12 @@ class GameModel{
         this.myGame = new RunningGame();
     }
 	
-	getLoadbles(){
-		FileLoader.getLoadables();
-	}
-
-    addCurrency(){
-        this.myCurrency++;
+	loadGame(obfuscatedString){
+		this.myGame = Deobfuscator.getObjectFromObfuscatedString(obfuscatedString);
+    }
+    
+    saveGame(){
+        return Obfuscator.obfuscateJavascriptObject(this.myGame);
     }
 
-    getCurrency(){
-        return this.myCurrency;
-    }
 }

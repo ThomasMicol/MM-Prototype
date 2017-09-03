@@ -6,15 +6,13 @@ class Building{
 		this.clickPower = 1;
 		this.myLevel = 1;
 	}
-	
-	unlockBuilding(){
-		this.isUnlocked = true;
-	}
-	
-	build(){
-		this.isBuilt = true;
-	}
-	
-	
+
+	get level() {return this.myLevel};
+	get clickPower() {return this.clickPower}
+	set unlock() {this.isUnlocked = true}
+	set build() {this.isBuilt = true}
+	set upgrade() {this.level += 1}
+
+
 	
 }

@@ -11,7 +11,7 @@ class Building{
 	get clickPower() {return this.clickPower}
 	set unlock() {this.isUnlocked = true}
 	set build() {this.isBuilt = true}
-	set upgrade() {this.level += 1}
+	set upgrade(upgradeAmount) {this.level += upgradeAmount}
 
 
 	

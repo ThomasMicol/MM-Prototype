@@ -1,14 +1,11 @@
 class LumberMill extends Building{
     constructor(){
 		super();
-        this.isUnlocked = true;
-        this.isBuilt = true;
-        this.clickPower = 1;
         this.lumberCount = 0;
     }
 
     addWood(){
-        this.lumberCount += this.clickPower;
+        this.lumberCount += super.clickPower;
     }
 
     getWoodCount(){

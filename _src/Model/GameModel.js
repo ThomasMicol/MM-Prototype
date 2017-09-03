@@ -5,9 +5,12 @@ class GameModel{
     }
 
     newGame(){
-        console.log("ayo")
-        this.addCurrency();
+        this.myGame = new RunningGame();
     }
+	
+	getLoadbles(){
+		FileLoader.getLoadables();
+	}
 
     addCurrency(){
         this.myCurrency++;

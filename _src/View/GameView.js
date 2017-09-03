@@ -1,13 +1,10 @@
 class GameView{
     constructor(aModel){
         this.config = {
-<<<<<<< HEAD
             width: 1440,
             height: 880,
-=======
             width: 1420,
             height: 860,
->>>>>>> 93b977494370daa95474ae72f78d600baa9b5e46
             parent: 'game',
             renderer: Phaser.AUTO,
             state: {
@@ -32,10 +29,11 @@ class GameView{
     }
 
     setLaunchingStates(game, aModel){
-        this.states = StateFactory.getLaunchingStates(aModel);
+        this.states = StateFactory.getLaunchingStates(game, aModel);
         game.state.add('bootState', this.states.bootState, true)
         game.state.add('splashState', this.states.splashState);
         game.state.add('mainMenuState', this.states.mainMenuState); 
+        game.state.add('loadMenuState', this.states.loadMenuState); 
         game.state.add('characterCreationState', this.states.characterCreationState);
         game.state.add('mainGameState', this.states.mainGameState);
     }

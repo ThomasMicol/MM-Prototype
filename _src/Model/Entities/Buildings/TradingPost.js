@@ -1,15 +1,11 @@
 class TradingPost extends Building{
     constructor(){
 		super()
-        this.isUnlocked = true;
-        this.isBuilt = false;
-        this.myLevel = 1;
-        this.clickPower = 1;
         this.goldCount = 0;
     } 
 
     addGold(){
-        this.goldCount += this.clickPower;
+        this.goldCount += super.clickPower;
     }
 
     getGoldCount(){

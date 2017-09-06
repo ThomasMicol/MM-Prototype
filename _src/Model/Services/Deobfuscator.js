@@ -1,10 +1,10 @@
 class Deobfuscator{
     
-    getObjectFromObfuscatedString(aString){
+    static getObjectFromObfuscatedString(aString){
         return JSON.parse(this.deobfuscateObjectString(aString));
     }
     
-    deobfuscateObjectString(aString){
+    static deobfuscateObjectString(aString){
         return atob(aString);
     }
 }

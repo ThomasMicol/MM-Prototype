@@ -6,12 +6,18 @@
         
         <link rel="stylesheet" type="text/css" href="styles.css">
 
-		<!--imports phaser.io-->
+		<!--imports phaser.io & Related Librarys-->
         <script src="_src/node_modules/phaser-ce/build/phaser.js"> </script>
+		<script src="_src/node_modules/@orange-games/phaser-input/build/phaser-input.js"></script>
 		
+
 		
 		<!--Services scripts-->
         <script src="_src/Model/Services/FileLoader.js"> </script>
+        <script src="_src/Model/Services/FileSaver.js"> </script>
+        <script src="_src/Model/Services/Deobfuscator.js"> </script>
+        <script src="_src/Model/Services/Obfuscator.js"> </script>
+        <script src="_src/Model/Services/RunningGameReconstructor.js"> </script>
 		
 		<!--Scripts relating to View handling-->
         <script src="_src/View/StateFactory.js"> </script>
@@ -39,6 +45,7 @@
 		<!--Game Runners are to be imported last-->
 		<script src="_src/Model/GameModel.js"> </script>
         <script src="_src/Controller/GameController.js"> </script>
+		
         
     </head>
 

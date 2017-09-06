@@ -16,7 +16,9 @@ class GameView{
         }
         this.myModel = aModel;       
         this.states;
+		this.pluginManager;
         this.game = new Phaser.Game(this.config);
+		this.setPlugins();
         this.setLaunchingStates(this.game, this.myModel);
     }
         
@@ -28,6 +30,11 @@ class GameView{
         
     }
 
+	setPlugins(){
+		this.pluginManager = new Phaser.PluginManager(this.game);
+		this.pluginManager.add(PhaserInput.Plugin);
+	}
+	
     setLaunchingStates(game, aModel){
         this.states = StateFactory.getLaunchingStates(game, aModel);
         game.state.add('bootState', this.states.bootState, true)

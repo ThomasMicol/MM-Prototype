@@ -23,7 +23,7 @@ class MainMenuState{
             },
 
             render: function(){
-                this.game.debug.text("Money: " + aModel.getCurrency(), 10, 20,'red');
+                //this.game.debug.text("Money: " + aModel.getCurrency(), 10, 20,'red');
             },
 
             newGameClick: function(){

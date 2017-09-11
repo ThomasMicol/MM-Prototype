@@ -1,15 +1,15 @@
 class Grainery extends Building{
     constructor(){
 		super()
-        this.foodCount = 0;
+        this._foodCount = 0;
+    }
+
+    get foodCount(){
+        return this._foodCount;
     }
 
     addFood(){
-        this.foodCount += super.clickPower;
-    }
-
-    getFoodCount(){
-        return this.foodCount;
+        this._foodCount += super.clickPower;
     }
 
     removeFood(number){

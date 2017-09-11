@@ -7,7 +7,7 @@ class StateFactory{
 		stateHolder.bootState = BootState.getState(game);
 		stateHolder.splashState = SplashState.getState(game);
 		stateHolder.mainMenuState = MainMenuState.getState(game, aModel);
-		stateHolder.loadMenuState = LoadMenuState.getState(game);
+		stateHolder.loadMenuState = LoadMenuState.getState(game, aModel);
 		stateHolder.characterCreationState = CharacterCreationState.getState(game);
 		stateHolder.mainGameState = MainGameState.getState(game, aModel);
         

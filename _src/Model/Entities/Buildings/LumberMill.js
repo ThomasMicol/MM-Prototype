@@ -4,12 +4,27 @@ class LumberMill extends Building{
         this.lumberCount = 0;
     }
 
-    addWood(){
-        this.lumberCount += super.clickPower;
+    get woodCount(){
+        return this.lumberCount;
     }
 
-    getWoodCount(){
-        return this.lumberCount;
+    get upgradeCost(){
+        let currentLevel = super.level;
+        let neededWood = currentLevel * 2;
+        let neededFood  = currentLevel * 1.15;
+        let neededStone = currentLevel * 1.50;
+        let neededGold = currentLevel * 3;
+        let resourceDict  = {
+            wood: neededWood,
+            food: neededFood,
+            stone: neededStone,
+            gold: neededGold
+        }
+        return resourceDict;
+    }
+
+    addWood(){
+        this.lumberCount += super.clickPower;
     }
 
     removeLumber(number){

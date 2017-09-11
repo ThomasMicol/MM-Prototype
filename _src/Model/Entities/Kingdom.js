@@ -13,23 +13,25 @@ class Kingdom{
         return this.lumberMill.getWoodCount();
     }
 
-    
+
     foodClick(){
         this.grainery.addFood();
         return this.grainery.getFoodCount();
     }
 
-    
+
     stoneClick(){
         this.quarry.addStone();
         return this.quarry.getStoneCount();
     }
 
-    
+
     goldClick(){
         this.tradingPost.addGold();
         return this.tradingPost.getGoldCount();
     }
+
+    
 
     buildTradingPost(){
         console.log("in the build method")

@@ -1,18 +1,18 @@
 class Quarry extends Building{
     constructor(){
 		super()
-        this.stoneCount = 0;
+        this._stoneCount = 0;
+    }
+
+    get stoneCount(){
+        return this._stoneCount;
     }
 
     addStone(){
-        this.stoneCount += super.clickPower;
-    }
-
-    getStoneCount(){
-        return this.stoneCount;
+        this._stoneCount += super.clickPower;
     }
 
     removeStone(number){
-        this.stoneCount -= number;
+        this._stoneCount -= number;
     }
 }

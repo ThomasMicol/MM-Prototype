@@ -1,0 +1,4 @@
+class ServiceBuilding extends Building
+{
+    
+}

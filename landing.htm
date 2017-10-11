@@ -17,7 +17,11 @@
         <script src="_src/Model/Services/FileSaver.js"> </script>
         <script src="_src/Model/Services/Deobfuscator.js"> </script>
         <script src="_src/Model/Services/Obfuscator.js"> </script>
-        <script src="_src/Model/Services/RunningGameReconstructor.js"> </script>
+		<script src="_src/Model/Services/RunningGameReconstructor.js"> </script>
+		<script src="_src/Model/Services/UpgradeGenerator.js"> </script>
+		
+		<!--Entity Services-->
+		<script src="_src/Model/Entities/EntityServices/UpgradeCostCalculator.js"> </script>
 		
 		<!--Scripts relating to View handling-->
         <script src="_src/View/StateFactory.js"> </script>
@@ -37,10 +41,13 @@
 		<script src="_src/Model/RunningGame.js"> </script>
 		
 		<!--Entities Inherting From Building-->
-		<script src="_src/Model/Entities/Buildings/LumberMill.js"> </script>
-		<script src="_src/Model/Entities/Buildings/Grainery.js"> </script>
-		<script src="_src/Model/Entities/Buildings/Quarry.js"> </script>
-		<script src="_src/Model/Entities/Buildings/TradingPost.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/LumberMill.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/Grainery.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/Quarry.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/TradingPost.js"> </script>
+
+		<script src="_src/Model/Entities/Buildings/ServiceBuildings/School.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ServiceBuildings/Stable.js"> </script>
 		
 		<!--Game Runners are to be imported last-->
 		<script src="_src/Model/GameModel.js"> </script>

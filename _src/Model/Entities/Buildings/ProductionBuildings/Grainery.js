@@ -1,4 +1,4 @@
-class Grainery extends Building{
+class Grainery extends ProductionBuilding{
     constructor(){
 		super()
         this._foodCount = 0;
@@ -8,7 +8,7 @@ class Grainery extends Building{
         return this._foodCount;
     }
 
-    addFood(){
+    addResources(){
         this._foodCount += super.clickPower;
     }
 

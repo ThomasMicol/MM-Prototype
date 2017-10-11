@@ -18,16 +18,26 @@
 		<script src="_src/Model/Entities/Kingdom.js"> </script>
 		<script src="_src/Model/RunningGame.js"> </script>
 
-		<!--Entities Inherting From Building-->
-		<script src="_src/Model/Entities/Buildings/LumberMill.js"> </script>
-		<script src="_src/Model/Entities/Buildings/Grainery.js"> </script>
-		<script src="_src/Model/Entities/Buildings/Quarry.js"> </script>
-		<script src="_src/Model/Entities/Buildings/TradingPost.js"> </script>
+        <!--Entities Inherting From Building-->
+        <script src="_src/Model/Entities/ProductionBuilding.js"> </script>
+        <script src="_src/Model/Entities/ServiceBuilding.js"> </script>
+
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/LumberMill.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/Grainery.js"> </script>
+		<script src="_src/Model/Entities/Buildings/ProductionBuildings/Quarry.js"> </script>
+        <script src="_src/Model/Entities/Buildings/ProductionBuildings/TradingPost.js"> </script>
+        
+        <script src="_src/Model/Entities/Buildings/ServiceBuildings/School.js"> </script>
+        <script src="_src/Model/Entities/Buildings/ServiceBuildings/Stable.js"> </script>
 
         <!--Entity Services-->
         <script src="_src/Model/Entities/EntityServices/UpgradeCostCalculator.js"> </script>
         <script src="_src/Model/Entities/EntityServices/ResourceCountExtractor.js"> </script>
         <script src="_src/Model/Entities/EntityServices/RequiredResourceChecker.js"> </script>
+
+        <!--Game Elements-->
+        <script src="_src/Model/GameElements/Upgrade.js"> </script>
+        <script src="_src/Model/Services/UpgradeGenerator.js"> </script>
 
         <!--Testing-->
         <script src="testPageCode.js"> </script>

@@ -1,4 +1,4 @@
-class LumberMill extends Building{
+class LumberMill extends ProductionBuilding{
     constructor(){
 		super();
         this.lumberCount = 0;
@@ -23,7 +23,7 @@ class LumberMill extends Building{
         return resourceDict;
     }
 
-    addWood(){
+    addResources(){
         this.lumberCount += super.clickPower;
     }
 

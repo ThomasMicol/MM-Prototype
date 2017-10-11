@@ -1,5 +1,5 @@
 class ResourceCountExtractor{
-    extractResourceDict(aKingdom){
+    static extractResourceDict(aKingdom){
         let currentWood = aKingdom.lumberMill.woodCount;
         let currentFood = aKingdom.grainery.foodCount;
         let currentStone = aKingdom.quarry.stoneCount;

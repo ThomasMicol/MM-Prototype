@@ -1,4 +1,4 @@
-class Quarry extends Building{
+class Quarry extends ProductionBuilding{
     constructor(){
 		super()
         this._stoneCount = 0;
@@ -8,7 +8,7 @@ class Quarry extends Building{
         return this._stoneCount;
     }
 
-    addStone(){
+    addResources(){
         this._stoneCount += super.clickPower;
     }
 

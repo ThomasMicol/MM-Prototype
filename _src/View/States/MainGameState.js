@@ -10,8 +10,7 @@ class MainGameState{
 				this.grain = this.kingdom.grainery;
 				this.quarry = this.kingdom.quarry;
 				this.tradePost = this.kingdom.tradingPost;
-				this.gameGroup = new Phaser.Group(game, null, 'gameGroup', true);
-				this.guiGroup = new Phaser.Group(game, null, 'guiGroup', true);
+				this.screenElements = [];
 				this.game = game;
 			},
 			
@@ -56,7 +55,11 @@ class MainGameState{
 					this.gameGroup.addChild(this.btn_goldUpgrader);
 					this.btn_GoldClicker = this.game.add.button(this.game.world.centerX - 15, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
 					this.gameGroup.addChild(this.btn_GoldClicker);
-				}
+                }
+                let btn_lumberBuild = this.game.add.button(100,100, '', this.buildLumberMill, this, 2, 1, 0);
+                btn_lumberBuild.addChild(new Phaser.Text(this.game, 0 ,0 , "Build the Lumber Mill"));
+                this.screenElements.push(btn_lumberBuild);
+                console.log(this.screenElements);
 			},
 			
 			update: function(){
@@ -77,18 +80,24 @@ class MainGameState{
                 // if(this.tradePost.isBuilt){
                     // this.btn_GoldClicker = this.game.add.button(this.game.world.centerX - 615, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
                 // }
-                this.game.debug.text(this.lumber.getWoodCount(), 10, 20,'red');
-                this.game.debug.text(this.grain.getFoodCount(), 10, 40,'red');
-                this.game.debug.text(this.quarry.getStoneCount(), 10, 60,'red');
-                this.game.debug.text(this.tradePost.getGoldCount(), 10, 80,'red');
+                this.game.debug.text(this.lumber.woodCount, 10, 20,'red');
+                this.game.debug.text(this.grain.foodCount, 10, 40,'red');
+                this.game.debug.text(this.quarry.stoneCount, 10, 60,'red');
+                this.game.debug.text(this.tradePost.goldCount, 10, 80,'red');
 
             },
 			
-			drawGUI(){
-				this.btn_lumberBuild = this.game.add.button(100,100, '', this.buildLumberMill, this, 2, 1, 0);
-				btn_lumberBuild.addChild(new Phaser.Text(this.game, 0 ,0 , "Build the Lumber Mill"));
+			redraw(){
+                this.deleteGameElements();
+                this.loadInScreen();
 				
-			},
+            },
+            
+            deleteGameElements(){
+                this.screenElements.forEach(function(element) {
+                    element.destroy
+                }, this);
+            },
 			
 			drawGameMap(){
 				
@@ -97,7 +106,8 @@ class MainGameState{
 			},
 			
 			buildLumberMill: function(){
-				this.lumber.build = true;
+                this.lumber.build = true;
+                this.redraw();
 			},
 			
 			

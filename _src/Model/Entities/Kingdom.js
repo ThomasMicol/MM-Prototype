@@ -4,31 +4,33 @@ class Kingdom{
         this.grainery = new Grainery();
         this.quarry = new Quarry();
         this.tradingPost = new TradingPost();
+        this.school = new School();
+        this.stable = new Stable();
     }
 
 
 
     lumberClick(){
         this.lumberMill.addWood();
-        return this.lumberMill.getWoodCount();
+        return this.lumberMill.woodCount;
     }
 
 
     foodClick(){
         this.grainery.addFood();
-        return this.grainery.getFoodCount();
+        return this.grainery.foodCount;
     }
 
 
     stoneClick(){
         this.quarry.addStone();
-        return this.quarry.getStoneCount();
+        return this.quarry.stoneCount;
     }
 
 
     goldClick(){
         this.tradingPost.addGold();
-        return this.tradingPost.getGoldCount();
+        return this.tradingPost.goldCount;
     }
 
     
@@ -50,5 +52,31 @@ class Kingdom{
         this.grainery.removeFood(debtArr.foodDebt);
         this.quarry.removeStone(debtArr.stoneDebt);
         this.tradingPost.removeGold(debtArr.goldDebt);
+    }
+
+    applyUpgrade(anUpgrade)
+    {
+        if(RequiredResourceChecker.checkRequiredResources(ResourceCountExtractor.extractResourceDict(this), anUpgrade.cost))
+        {
+            this.deductResources(anUpgrade.cost);
+            if(anUpgrade.targetBuilding == "LumberMill")
+            {
+                
+                this.lumberMill.upgrade(anUpgrade);
+            }
+            if(anUpgrade.targetBuilding == "Grainery")
+            {
+                this.grainery.upgrade(anUpgrade);
+            }
+            if(anUpgrade.targetBuilding == "Quarry")
+            {
+                this.quarry.upgrade(anUpgrade);
+            }
+            if(anUpgrade.targetBuilding == "TradingPost")
+            {
+                this.tradingPost.upgrade(anUpgrade);
+            }
+        }
+        
     }
 }

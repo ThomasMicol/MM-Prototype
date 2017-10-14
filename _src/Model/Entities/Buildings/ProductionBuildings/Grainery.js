@@ -8,8 +8,9 @@ class Grainery extends ProductionBuilding{
         return this._foodCount;
     }
 
-    addResources(){
-        this._foodCount += super.clickPower;
+    productionClick()
+    {
+        this._foodCount += this.calcClickPower();
     }
 
     removeFood(number){

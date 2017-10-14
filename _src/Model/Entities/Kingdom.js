@@ -11,25 +11,25 @@ class Kingdom{
 
 
     lumberClick(){
-        this.lumberMill.addWood();
+        this.lumberMill.productionClick();
         return this.lumberMill.woodCount;
     }
 
 
     foodClick(){
-        this.grainery.addFood();
+        this.grainery.productionClick();
         return this.grainery.foodCount;
     }
 
 
     stoneClick(){
-        this.quarry.addStone();
+        this.quarry.productionClick();
         return this.quarry.stoneCount;
     }
 
 
     goldClick(){
-        this.tradingPost.addGold();
+        this.tradingPost.productionClick();
         return this.tradingPost.goldCount;
     }
 

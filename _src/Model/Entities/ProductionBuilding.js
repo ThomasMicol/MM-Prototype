@@ -67,4 +67,20 @@ class ProductionBuilding extends Building
             this.exponent_idleBonus += anUpgrade.magnitude;
         }
     }
+
+    calcClickPower()
+    {
+        let power = this.clickPower;
+        power += this.flat_clickBonus;
+        power = power * this.multiplier_clickBonus;
+        power = (power + (power * (this.percentage_clickBonus / 100)));
+        power = Math.pow(power, this.exponent_clickBonus);
+        return power;
+        
+    }
+
+    productionClick()
+    {
+        throw "Not Overridden in child";
+    }
 }

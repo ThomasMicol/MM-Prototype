@@ -7,6 +7,7 @@ class RequiredResourceChecker{
             return false;
         }
         console.log(currentResourcesDict);
-        console.log(neededResourcesDict)
+        console.log(neededResourcesDict);
+        return false;
     }
 }

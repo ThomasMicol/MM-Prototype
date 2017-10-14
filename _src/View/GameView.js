@@ -3,8 +3,6 @@ class GameView{
         this.config = {
             width: 1440,
             height: 880,
-            width: 1420,
-            height: 860,
             parent: 'game',
             renderer: Phaser.AUTO,
             state: {

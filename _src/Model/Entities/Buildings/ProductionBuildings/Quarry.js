@@ -8,8 +8,9 @@ class Quarry extends ProductionBuilding{
         return this._stoneCount;
     }
 
-    addResources(){
-        this._stoneCount += super.clickPower;
+    productionClick()
+    {
+        this._stoneCount += this.calcClickPower();
     }
 
     removeStone(number){

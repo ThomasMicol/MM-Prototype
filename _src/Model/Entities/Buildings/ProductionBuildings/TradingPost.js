@@ -18,5 +18,10 @@ class TradingPost extends ProductionBuilding{
         this._goldCount -= number;
     }
 
+    productionClick()
+    {
+        this._goldCount += this.calcClickPower();
+    }
+
 
 }

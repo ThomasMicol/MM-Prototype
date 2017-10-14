@@ -8,23 +8,9 @@ class LumberMill extends ProductionBuilding{
         return this.lumberCount;
     }
 
-    get upgradeCost(){
-        let currentLevel = super.level;
-        let neededWood = currentLevel * 2;
-        let neededFood  = currentLevel * 1.15;
-        let neededStone = currentLevel * 1.50;
-        let neededGold = currentLevel * 3;
-        let resourceDict  = {
-            wood: neededWood,
-            food: neededFood,
-            stone: neededStone,
-            gold: neededGold
-        }
-        return resourceDict;
-    }
-
-    addResources(){
-        this.lumberCount += super.clickPower;
+    productionClick()
+    {
+        this.lumberCount += this.calcClickPower();
     }
 
     removeLumber(number){

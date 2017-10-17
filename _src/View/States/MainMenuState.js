@@ -10,15 +10,17 @@ class MainMenuState{
 
         mainMenuState = {
             preload: function(){
-                this.load.image('newGame', '_sprites/Main Menu/newGameButton.jpg');
-                this.load.image('loadGame', '_sprites/Main Menu/loadGameButton.jpg');
-                this.load.image('options', '_sprites/Main Menu/optionsButton.jpg');
+                this.load.image('newGame', '_sprites/Main Menu/newGameButton.png');
+                this.load.image('loadGame', '_sprites/Main Menu/loadGameButton.png');
+                this.load.image('options', '_sprites/Main Menu/optionsButton.png');
+                this.load.image('mainMenu_background', '_sprites/Main Menu/mainMenuBackground.png');
             },
 
             create: function(){
-                this.btn_NewGame = this.game.add.button(this.game.world.centerX - 95, 400, 'newGame', this.newGameClick, this, 2, 1 ,0)
-                this.btn_LoadGame = this.game.add.button(200,400,'loadGame', this.loadGameClick, this, 2, 1, 0);
-                this.btn_Options = this.add.sprite(200,600,'options');
+                this.background = this.add.sprite(0,0, "mainMenu_background");
+                this.btn_NewGame = this.game.add.button(510, 510, 'newGame', this.newGameClick, this, 2, 1 ,0)
+                this.btn_LoadGame = this.game.add.button(510,610,'loadGame', this.loadGameClick, this, 2, 1, 0);
+                this.btn_Options = this.add.sprite(510, 710,'options');
 
             },
 

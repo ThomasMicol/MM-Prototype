@@ -28,7 +28,8 @@ class MainGameState{
 				this.guiGroup = new Phaser.Group(game, null, 'guiGroup', true);
                 this.game = game;
                 this.upgradeGroup  = aModel.myGame.myUpgrades;
-                this.upgradeSidebar;
+                this.upgradeSidebar = [];
+                this.sidebarStyle = { font: "24px Finger Paint", fill: "#e6dcb6", tabs: [ 200] };
 			},
 			
             preload:function(){
@@ -90,28 +91,29 @@ class MainGameState{
                     this.statline1.destroy(true);
                     this.statline2.destroy(true);
                 }
-                let style = { font: "24px Finger Paint", fill: "#e6dcb6", tabs: [ 200] };
                 let text1 = "Wood: " + this.lumber.woodCount.toString() + "\tFood: " + this.grain.foodCount.toString();
                 let text2 = "Stone: " + this.quarry.stoneCount.toString() + "\tGold: " + this.tradePost.goldCount.toString();
                 
-                this.statline1 = this.game.add.text(1090, 34, text1, style);
-                this.statline2 = this.game.add.text(1090, 84, text2, style);
+                this.statline1 = this.game.add.text(1090, 34, text1, this.sidebarStyle);
+                this.statline2 = this.game.add.text(1090, 84, text2, this.sidebarStyle);
 			},
 
             render: function(){ 
-                if(this.upgradeSidebar != undefined)
-                {
-                    this.upgradeSidebar.forEach(function(element){
-                        element.destroy(true);
-                    }, this);
-                }
-                
-                this.upgradeGroup  = aModel.myGame.myUpgrades;
+                this.upgradeSidebar.forEach(function(element){
+                    element.destroy(true);
 
-                this.upgradeGroup.forEach(function(upgrade) {
-                    console.log(upgrade);
                 }, this);
+                this.upgradeSidebar = [];
+                this.upgradeGroup  = aModel.myGame.myUpgrades;
+                this.upgradeGroup.forEach(function(upgrade) {
+                    let upgradeHolder = this.game.add.graphics(1090, (124 + (this.upgradeGroup.indexOf(upgrade) * 40)))
+                    upgradeHolder.beginFill
 
+                    //let upgradeHolder = new Phaser.Rectangle(1040,(124 + (this.upgradeGroup.indexOf(upgrade) * 45)), 380, 100 )
+                    //this.game.debug.geom(upgradeHolder, '#0fffff');
+                    let text = this.game.add.text(1090, (124 + (this.upgradeGroup.indexOf(upgrade) * 40)), upgrade.targetBuilding + "Cost: " + upgrade.cost.wood, this.sidebarStyle);
+                    this.upgradeSidebar.push(text)
+                }, this);
             },
 
             lumberMillClick: function(pointer){

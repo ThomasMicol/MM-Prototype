@@ -52,6 +52,8 @@ class MainGameState{
                 this.load.image('goldParticle', '_sprites/Game Screen/Particles/gold.png');
                 this.load.image('cornField', '_media/ANimate/CornSway.gif');
                 this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+                this.load.audio('thunk', '_media/woodThunk.wav');
+                
 
                 
 
@@ -68,19 +70,19 @@ class MainGameState{
                 this.background = this.game.add.image(0,0, 'gameBackground');
                 this.sidebarMenuBackground = this.game.add.image(1000,0, 'sidebarBackground');
 				if(!this.lumber.isBuilt){
-                    this.btn_WoodClicker = this.game.add.button(this.game.world.centerX - 95, 10, 'lumberMill1', this.lumberMillClick, this, 2, 1 ,0)
+                    this.btn_WoodClicker = this.game.add.button(30, 10, 'lumberMill1', this.lumberMillClick, this, 2, 1 ,0)
 					this.gameGroup.addChild(this.btn_WoodClicker);
                 }
                 if(!this.grain.isBuilt){
-                    this.btn_FoodClicker = this.game.add.button(this.game.world.centerX - 95, 150, 'grainery1', this.graineryClick, this, 2, 1 ,0)
+                    this.btn_FoodClicker = this.game.add.button(660, 400, 'grainery1', this.graineryClick, this, 2, 1 ,0)
 					this.gameGroup.addChild(this.btn_FoodClicker);
                 }
                 if(!this.quarry.isBuilt){
-                    this.btn_StoneClicker = this.game.add.button(this.game.world.centerX - 95, 300, 'quarry1', this.quarryClick, this, 2, 1 ,0)
+                    this.btn_StoneClicker = this.game.add.button(30, 200, 'quarry1', this.quarryClick, this, 2, 1 ,0)
 					this.gameGroup.addChild(this.btn_StoneClicker);
                 } 
 				if(!this.tradePost.isBuilt){
-					this.btn_GoldClicker = this.game.add.button(this.game.world.centerX - 15, 450, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
+					this.btn_GoldClicker = this.game.add.button(460, 490, 'tradingPost1', this.tradingPostClick, this, 2, 1 ,0)
 					this.gameGroup.addChild(this.btn_GoldClicker);
 				}
 			},
@@ -117,6 +119,8 @@ class MainGameState{
             },
 
             lumberMillClick: function(pointer){
+                let thunk = this.game.add.audio('thunk');
+                thunk.play();
                 this.kingdom.lumberClick();
                 let coin = this.game.add.sprite(pointer.x +(Math.random() * 180),pointer.y+(Math.random() * 20), 'lumberParticle')
                 let coinCollect = this.game.add.tween(coin);
@@ -126,6 +130,8 @@ class MainGameState{
             },
 
             graineryClick: function(pointer){
+                let thunk = this.game.add.audio('thunk');
+                thunk.play();
                 this.kingdom.foodClick();
                 let coin = this.game.add.sprite(pointer.x +(Math.random() * 180),pointer.y+(Math.random() * 20), 'foodParticle')
                 let coinCollect = this.game.add.tween(coin);
@@ -135,6 +141,8 @@ class MainGameState{
             },
 
             quarryClick: function(pointer){
+                let thunk = this.game.add.audio('thunk');
+                thunk.play();
                 this.kingdom.stoneClick();
                 let coin = this.game.add.sprite(pointer.x +(Math.random() * 180),pointer.y+(Math.random() * 20), 'stoneParticle')
                 let coinCollect = this.game.add.tween(coin);
@@ -144,6 +152,8 @@ class MainGameState{
             },
 
             tradingPostClick: function(pointer){
+                let thunk = this.game.add.audio('thunk');
+                thunk.play();
                 this.kingdom.goldClick();
                 let coin = this.game.add.sprite(pointer.x +(Math.random() * 180),pointer.y+(Math.random() * 20), 'goldParticle')
                 let coinCollect = this.game.add.tween(coin);

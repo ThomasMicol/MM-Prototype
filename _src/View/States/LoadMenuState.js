@@ -7,18 +7,23 @@ class LoadMenuState{
 		}
 		
 		loadMenuState = {
+
+			preload:function()
+			{
+				this.load.image('mainMenu_background', '_sprites/Main Menu/mainMenuBackground.png');
+			},
+
 			create:function(){
-				console.log("in the loadMenuState create function");
-				this.input = game.add.inputField(40,400, { 
+				this.background = game.add.sprite(0,0, "mainMenu_background");
+				this.input = game.add.inputField(530,510, { 
 					font: '16px',
-					width: 400,
-					height: 40,
+					width: 250,
+					height: 160,
 					placeholder: 'Enter your save string here'
 	
 				});
-				console.log(this.input);
 				
-				this.btn_load = game.add.button(500,400,'loadGame', this.loadGameClick, this, 2, 1, 0);
+				this.btn_load = game.add.button(510,710,'loadGame', this.loadGameClick, this, 2, 1, 0);
 				
 			},
 			
